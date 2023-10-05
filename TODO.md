@@ -1,8 +1,7 @@
 
 
-build run scripts
-add cleanup function to psm1
-add install check function to psm1
-add pull package function to psm1
-add pull validation function to psm1
+build running scripts
+create install module - add file type check, auto switch assignment unless specified
+create post install check module
+
 find deployment method

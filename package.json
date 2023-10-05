@@ -4,6 +4,7 @@
     "version": "", 
     "vendor": "", 
     "installfile": "",
+    "switches": "",
     "workingdir": "",      
     "downloadrepo": "",
     "installerhash":""
