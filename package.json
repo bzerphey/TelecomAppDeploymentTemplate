@@ -2,8 +2,9 @@
     "name": "",
     "prettyname": "",
     "version": "", 
-    "company": "", 
+    "vendor": "", 
     "installfile": "",
     "workingdir": "",      
-    "downloaddir": ""
+    "downloadrepo": "",
+    "installerhash":""
 }

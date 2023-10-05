@@ -1,1 +1,3 @@
-Import-Module .\functions.psm1
+Import-Module .\modules\*
+
+$THEvariable = Get-Content ./package.json | ConvertFrom-Json
