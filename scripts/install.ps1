@@ -5,7 +5,14 @@ $THEvariable = Get-Content ./package.json | ConvertFrom-Json
 $installedCheck = AppInstalled -name $THEvariable.name -version $THEvariable.version -vendor $THEvariable.vendor
 
 If ($installedCheck -eq 1){
-    #Run install
+    if (HashCheck -eq $true) {
+        #Run install
+    }Elseif (HashCheck -eq $false){
+        Write-Error "File hash does not match. Please clear files and try again."
+        Exit
+    }else {
+        Write-Error "HashCheck module failed. See administrator."
+    }
 }Elseif ($installedCheck -eq 0){
     Write-Error "Program is already installed and on correct version."
 }Elseif ($installedCheck -eq 2){
@@ -15,5 +22,5 @@ If ($installedCheck -eq 1){
 }Elseif ($installedCheck -eq 99){
     Write-Error "WMI object error. See administrator."
 }Else {
-    Write-Error "Module failed. See administrator."
+    Write-Error "AppInstalled module failed. See administrator."
 }
