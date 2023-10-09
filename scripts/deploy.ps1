@@ -10,6 +10,8 @@ Invoke-WebRequest $webreq -OutFile $dest
 
 Expand-Archive $dest -DestinationPath $destpath
 
+Set-Location $destpath
+
 dir | Rename-Item -NewName {$_.Name -replace "-main", ""}
 
 
