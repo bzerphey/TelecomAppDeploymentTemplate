@@ -1,6 +1,9 @@
-Import-Module .\modules\*
+Import-Module ./modules/AppInstalled.psm1
+Import-Module ./modules/HashCheck.psm1
+Import-Module ./modules/RunCleanup.psm1
+Import-Module ./modules/SwitchesFinder.psm1
 
-$THEvariable = Get-Content ./package.json | ConvertFrom-Json
+$THEvariable = Get-Content ../package.json | ConvertFrom-Json
 
 $installedCheck = AppInstalled -name $THEvariable.name -version $THEvariable.version -vendor $THEvariable.vendor
 
