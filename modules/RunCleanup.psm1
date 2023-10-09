@@ -1,8 +1,10 @@
 function RunCleanup {
     param (
-        $workingdir
+        $name
     )
     
+    $workingdir = "C:\TelecomRepo\" + $name
+
     Remove-Item -LiteralPath $workingdir -Force -Recurse
 
     If (Test-Path -Path $workingdir){
