@@ -1,7 +1,7 @@
 confirm .exe
-add intunewin file creation script
-write instructions
 add direct download?
+write instructions
+add intunewin file creation to instructions
 build uninstall.ps1
 build upgrade.ps1
 add log file
