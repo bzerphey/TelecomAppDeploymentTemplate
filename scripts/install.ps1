@@ -7,11 +7,18 @@ $THEvariable = Get-Content ./package.json | ConvertFrom-Json
 
 $installedCheck = AppInstalled -name $THEvariable.name -version $THEvariable.version -vendor $THEvariable.vendor
 
+
+
 #Install Logic
 If ($installedCheck -eq 1){
     if (HashCheck -eq $true) {
-        #Start-Process (SwitchesFinder -installfile $THEvariable.installfile -switches $THEvariable.switches -setupfile $THEvariable.setupfile) -NoNewWindow -Wait -PassThru $process.ExitCode
-        SwitchesFinder -installfile $THEvariable.installfile -switches $THEvariable.switches -setupfile $THEvariable.setupfile
+        $runtime = SwitchesFinder -name $THEvariable.name -installfile $THEvariable.installfile -switches $THEvariable.switches -setupfile $THEvariable.setupfile
+	    if ($runtime -ne "2") {
+            
+        }Else{
+            Write-Error "SwitchesFinder module failed. See administrator."
+        }
+        
     }Elseif (HashCheck -eq $false){
         Write-Error "File hash does not match. Please clear files and try again."
         Exit
@@ -45,3 +52,5 @@ If ($installedCheck -eq 1){
 }Else {
     Write-Error "AppInstalled module failed. See administrator."
 }
+
+Remove-Module *
