@@ -5,7 +5,7 @@ Import-Module ./modules/SwitchesFinder.psm1
 
 $THEvariable = Get-Content ./package.json | ConvertFrom-Json
 
-$installedCheck = AppInstalled -name $THEvariable.name -version $THEvariable.version -vendor $THEvariable.vendor
+$installedCheck = AppInstalled -name $THEvariable.name -prettyname $THEvariable.prettyname -version $THEvariable.version -vendor $THEvariable.vendor
 
 
 
@@ -38,19 +38,15 @@ If ($installedCheck -eq 1){
 }
 
 #Installation Check Logic
-$installedCheck = AppInstalled -name $THEvariable.name -version $THEvariable.version -vendor $THEvariable.vendor
+$installedCheck = AppInstalled -name $THEvariable.name -prettyname $THEvariable.prettyname -version $THEvariable.version -vendor $THEvariable.vendor
 
 If ($installedCheck -eq 1){
     Write-Error "Program installation did not complete successfully. See administrator."
 }Elseif ($installedCheck -eq 0){
-    Write-Host "Program installtion complete."
-    If ((RunCleanup -name $THEvariable.name) -eq 0){
-        Write-Host "Cleanup complete."
-    }Else{
-        Write-Error "Cleanup failed."
-    }
+    Write-Host "Program installation complete."
 }Else {
     Write-Error "AppInstalled module failed. See administrator."
 }
+
 
 Remove-Module *

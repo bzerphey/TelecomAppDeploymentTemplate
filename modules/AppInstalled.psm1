@@ -1,15 +1,16 @@
 function AppInstalled {
     param (
         $name,
+        $prettyname,
         $version,
         $vendor
     )
     
     $arrProgram = Get-WmiObject -Class Win32_Product | where vendor -eq $vendor | select Name, Version
-
+   
     If ($arrProgram -eq $null){
         Return 1
-    }Elseif (($arrProgram.Name -eq $name) -and ($arrProgram.Version -eq $version)){
+    }Elseif (($arrProgram.Name -like $prettyname) -and ($arrProgram.Version -eq $version)){
         Write-Error "Program is installed and is the correct version"
         Return 0
     }Elseif ($arrProgram.Version -lt $version) {

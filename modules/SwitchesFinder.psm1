@@ -30,7 +30,6 @@ function SwitchesFinder {
                 "/qb"
                 "/norestart"
             )
-            Write-Host $msiargs
             Start-Process "msiexec.exe" -Wait -ArgumentList $msiargs
         }Else{
             $runcmd = "2"
