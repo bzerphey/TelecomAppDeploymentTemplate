@@ -1,5 +1,6 @@
 confirm .exe
 add direct download?
+test automate deployment
 write instructions
 add intunewin file creation to instructions
 build uninstall.ps1
